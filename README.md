@@ -1,2 +1,50 @@
-# honey-home
-Honey Home online store website with product ordering and inventory management.
+# Honey House — เว็บไซต์ร้านขายน้ำผึ้ง
+
+เว็บไซต์ตัวอย่างสำหรับงานเรียนตามโจทย์: Landing Page ขายน้ำผึ้งอย่างน้อย 2 SKUs, ตะกร้าสินค้า, แบบฟอร์มสั่งซื้อ, หน้าจัดการคำสั่งซื้อสำหรับหยิบ/แพ็กสินค้า และไฟล์เชื่อม Google Sheets
+
+## สินค้าตัวอย่าง
+- HH-001 น้ำผึ้งดอกไม้ป่า 250 กรัม — 159 บาท
+- HH-002 น้ำผึ้งดอกลำไย 500 กรัม — 279 บาท
+
+> ชื่อสินค้า ราคา และรายละเอียดเป็นข้อมูลสมมติสำหรับงานเรียน สามารถแก้ได้ใน `app.js` ที่ตัวแปร `PRODUCTS`
+
+## ทดลองใช้งาน
+1. เปิด `index.html` ในเบราว์เซอร์ หรือใช้ VS Code + Live Server
+2. เลือกสินค้า เพิ่มลงตะกร้า และกรอกข้อมูลจัดส่ง
+3. เปิดเมนู “หน้าจัดการคำสั่งซื้อ” ที่ท้ายหน้า หรือเปิด `admin.html`
+4. เปลี่ยนสถานะจาก “รอหยิบสินค้า” → “กำลังหยิบสินค้า” → “แพ็กสินค้าแล้ว” → “จัดส่งแล้ว”
+5. กรอกเลขพัสดุ และกดดาวน์โหลด CSV เพื่อส่งออกข้อมูล
+
+## เชื่อม Google Sheets
+อ่านคู่มือใน `google-sheets/Code.gs` แล้วทำตามนี้:
+1. สร้าง Google Sheet ใหม่
+2. ไปที่ Extensions > Apps Script
+3. วางโค้ดจากไฟล์ `google-sheets/Code.gs` แล้วบันทึก
+4. Deploy > New deployment > เลือก Web app
+5. Execute as: Me และ Who has access: Anyone (ใช้กับข้อมูลตัวอย่างเท่านั้น)
+6. กด Deploy และคัดลอก Web app URL
+7. เปิด `config.js` แล้วใส่ URL ใน `GOOGLE_SHEETS_URL`
+8. อัปโหลดไฟล์ที่แก้แล้วขึ้น GitHub/Vercel อีกครั้ง
+
+**หมายเหตุ:** หน้าเว็บจะส่งคำสั่งซื้อใหม่ไปเพิ่มเป็นแถวใน Google Sheets ส่วนหน้าจัดการคำสั่งซื้อในเวอร์ชันนี้เก็บข้อมูลไว้ในเบราว์เซอร์เครื่องที่สั่งซื้อ และส่งออก CSV ได้ การอัปเดตสถานะ/เลขพัสดุจากหน้าแอดมินยังไม่ได้ซิงก์กลับ Google Sheets อัตโนมัติ
+
+## อัปโหลด GitHub
+1. สร้าง repository ใหม่ เช่น `honey-house-store`
+2. อัปโหลดไฟล์และโฟลเดอร์ทั้งหมด โดยคงโครงสร้างเดิม
+3. ตรวจว่าโฟลเดอร์ `images` และ `google-sheets` ถูกอัปโหลดไปด้วย
+
+## Deploy บน Vercel
+1. เข้า https://vercel.com แล้ว Sign in ด้วย GitHub
+2. กด Add New > Project แล้วเลือก repository `honey-house-store`
+3. Framework Preset เลือก Other
+4. Build Command และ Output Directory ปล่อยว่างได้
+5. กด Deploy แล้วรอให้เสร็จ จะได้ URL เว็บไซต์
+
+## โครงสร้างโปรเจกต์
+- `index.html` หน้าเว็บไซต์ขายสินค้า
+- `style.css` รูปแบบและการแสดงผล
+- `app.js` สินค้า ตะกร้า และการสั่งซื้อ
+- `config.js` ตั้งค่า Google Sheets URL
+- `admin.html`, `admin.js`, `admin.css` หน้าจัดการคำสั่งซื้อ
+- `images/` รูปประกอบสินค้าแบบ SVG
+- `google-sheets/Code.gs` สคริปต์บันทึกข้อมูลลง Google Sheets

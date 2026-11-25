@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5b942" />
+  <title>Honey House | น้ำผึ้งแท้จากธรรมชาติ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home"><span class="brand-mark">🍯</span><span>HONEY <b>HOUSE</b><small>หวานจากธรรมชาติ</small></span></a>
+    <nav><a href="#products">สินค้า</a><a href="#story">เกี่ยวกับเรา</a><a href="#contact">ติดต่อ</a></nav>
+    <button class="cart-button" id="cartOpen">🛒 ตะกร้า <span id="cartCount">0</span></button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <span class="eyebrow">NATURAL • PURE • HAPPINESS</span>
+        <h1>เติมความหวาน<br>ให้ทุกวันของคุณ</h1>
+        <p>เลือกความอร่อยจากน้ำผึ้งคุณภาพดี หอมละมุน ใช้ได้ทั้งชงเครื่องดื่มและเพิ่มรสชาติให้เมนูโปรด</p>
+        <a class="primary-link" href="#products">เลือกซื้อสินค้า <span>→</span></a>
+        <div class="hero-note"><span>✦</span> คัดสรรด้วยความใส่ใจทุกขวด</div>
+      </div>
+      <div class="hero-art">
+        <div class="sun"></div><div class="honeycomb h1"></div><div class="honeycomb h2"></div>
+        <img src="images/honey-jar.svg" alt="ขวดน้ำผึ้ง Honey House" />
+        <div class="round-stamp">100%<small>HONEY<br>LOVE</small></div>
+      </div>
+    </section>
+
+    <section class="benefits">
+      <div><span>🌼</span><b>หอมละมุน</b><small>รสชาติเป็นเอกลักษณ์</small></div>
+      <div><span>🐝</span><b>ใส่ใจทุกขั้นตอน</b><small>เลือกสินค้าอย่างพิถีพิถัน</small></div>
+      <div><span>📦</span><b>แพ็กอย่างดี</b><small>พร้อมจัดส่งถึงบ้าน</small></div>
+    </section>
+
+    <section class="products section" id="products">
+      <div class="section-heading"><div><span class="eyebrow">OUR PRODUCTS</span><h2>เลือกความหวานที่ใช่</h2></div><p>มีให้เลือก 2 ขนาด<br>เหมาะกับทุกช่วงเวลา</p></div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="story section" id="story">
+      <div class="story-visual"><div class="story-circle">HONEY<br><b>HOUSE</b><span>♥</span></div></div>
+      <div><span class="eyebrow">A LITTLE STORY</span><h2>ความสุขเล็ก ๆ<br>ในทุกหยดของน้ำผึ้ง</h2><p>Honey House อยากให้ช่วงเวลาธรรมดากลายเป็นช่วงเวลาพิเศษ ไม่ว่าจะเติมน้ำผึ้งในชา ราดบนขนมปัง หรือทำเมนูโปรด ก็เพิ่มความหอมหวานได้ในแบบของคุณ</p><a href="#products" class="text-link">เลือกชมสินค้า →</a></div>
+    </section>
+
+    <section class="contact section" id="contact"><span class="eyebrow">SAY HELLO</span><h2>ขอบคุณที่แวะมาหาเรา</h2><p>สอบถามรายละเอียดสินค้าและการจัดส่งได้ผ่านช่องทางร้านค้า</p><span class="contact-pill">✉ honeyhouse@example.com</span></section>
+  </main>
+
+  <footer><a class="brand" href="#home"><span class="brand-mark">🍯</span><span>HONEY <b>HOUSE</b><small>หวานจากธรรมชาติ</small></span></a><span>© 2026 Honey House. Student project.</span><a href="admin.html">หน้าจัดการคำสั่งซื้อ</a></footer>
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="ตะกร้าสินค้า">
+    <div class="drawer-head"><h3>ตะกร้าสินค้า</h3><button id="cartClose" class="icon-button">✕</button></div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-bottom"><div class="total-line"><span>ยอดรวม</span><b id="cartTotal">฿0</b></div><button class="primary-button" id="checkoutOpen">ดำเนินการสั่งซื้อ</button><small>ค่าจัดส่งคิดตามจริงเมื่อร้านยืนยันคำสั่งซื้อ</small></div>
+  </aside>
+
+  <div class="modal-backdrop" id="checkoutModal">
+    <form class="checkout-modal" id="checkoutForm">
+      <div class="drawer-head"><div><span class="eyebrow">CHECKOUT</span><h3>ข้อมูลสำหรับจัดส่ง</h3></div><button type="button" class="icon-button" id="checkoutClose">✕</button></div>
+      <label>ชื่อ-นามสกุล<input name="customer" required placeholder="ชื่อผู้รับพัสดุ"></label>
+      <label>เบอร์โทรศัพท์<input name="phone" required inputmode="tel" placeholder="08X-XXX-XXXX"></label>
+      <label>ที่อยู่จัดส่ง<textarea name="address" required rows="3" placeholder="บ้านเลขที่ ถนน ตำบล อำเภอ จังหวัด รหัสไปรษณีย์"></textarea></label>
+      <label>หมายเหตุ (ถ้ามี)<input name="note" placeholder="เช่น ฝากไว้หน้าบ้าน"></label>
+      <div class="checkout-summary" id="checkoutSummary"></div>
+      <button class="primary-button" type="submit">ยืนยันคำสั่งซื้อ</button>
+      <p class="form-hint">* เว็บไซต์ตัวอย่างสำหรับงานเรียน ยังไม่มีระบบชำระเงินจริง</p>
+    </form>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
